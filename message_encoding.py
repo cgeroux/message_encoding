@@ -2,7 +2,6 @@
 from __future__ import print_function
 import optparse as op
 import sys
-print("python version=",sys.version_info)
 
 class Random():
   """Provides a version independent random number generator
@@ -87,7 +86,6 @@ def decrypt(encryptedString,key="0"):
   '''Decrypts a given string'''
   
   decryptedString=""
-  print("key=",key)
   random=Random()
   random.seed(key)
   for encryptedChar in encryptedString:
@@ -102,7 +100,6 @@ def encrypt(inputString,key="0"):
   random.seed(key)
   for inputChar in inputString:
     shift=random.getNum(1,4)
-    print(shift)
     encryptedString+=chr(ord(inputChar)+shift)
   return encryptedString
 def main():
@@ -115,7 +112,6 @@ def main():
     raise Exception("Expected a string.")
   
   #do the encryption/decryption
-  print("string=",args[0])
   if options.encode:
     print(encrypt(args[0],key=options.encryptionKey))
   else:
